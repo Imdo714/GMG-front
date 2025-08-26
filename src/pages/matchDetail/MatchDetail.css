@@ -1,0 +1,174 @@
+
+/* 상단 이미지 */
+.top-image {
+  width: 100%;
+  padding: 10px;
+  height: 280px;
+  object-fit: contain; 
+  border-bottom: 1px solid #eee;
+}
+
+/* 콘텐츠 영역 */
+.content {
+  padding: 8px;
+}
+
+.date {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.location {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.stats {
+  font-size: 17px;
+  color: #999;
+  margin-bottom: 16px;
+}
+
+/* 모집 상태 박스 */
+.description-box {
+  background: #fff;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  font-size: 14px;
+  color: #444;
+  line-height: 1.5;
+  position: relative;
+}
+
+.status-inline {
+    width: 100%;
+  text-align: center;
+  padding: 8px 0;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.status-inline.open {
+  background-color: #28a745; 
+  color: white;
+}
+
+.status-inline.closed {
+  background-color: #ccc; 
+  color: #666;
+}
+
+/* 신청자 리스트 */
+.applicants-box {
+  background: #fff;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.applicants-header {
+  font-weight: bold;
+  margin-bottom: 16px;
+  font-size: 15px;
+}
+
+.applicants-header .count {
+  color: #007bff;
+  margin-left: 6px;
+}
+
+.applicants-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 기본 3개 */
+  gap: 12px;
+}
+
+.applicant-card {
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 12px;
+  text-align: center;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  transition: transform 0.2s;
+}
+
+.applicant-card:hover {
+  transform: translateY(-3px);
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 8px;
+}
+
+.name {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* 반응형 처리 */
+@media (max-width: 800px) {
+  .applicants-grid {
+    grid-template-columns: repeat(2, 1fr); /* 화면 작으면 2개 */
+  }
+}
+
+@media (max-width: 500px) {
+  .applicants-grid {
+    grid-template-columns: 1fr; /* 더 작으면 1개 */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 고정 버튼 */
+.fixed-btn {
+    position: fixed;
+    bottom: 57px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 900px;
+    width: 100%;
+    background: #007bff;
+    color: white;
+    text-align: center;
+    padding: 13px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 0; 
+}
