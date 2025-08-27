@@ -1,8 +1,9 @@
 import { useState } from "react";
-import './HomePage.css'
+import '../../css/HomePage.css'
 import Header from "../../components/Header";
 import MainBanner from "../../components/home/MainBanner";
 import MatchItem from "../../components/home/MatchItem";
+import Promotion from "../../components/Promotion";
 
 const HomePage = () => {
     const [matches, setMatches] = useState([
@@ -27,6 +28,12 @@ const HomePage = () => {
         <div className="container">
             <Header />
             <MainBanner />
+
+            {/* 광고창 */}
+            <Promotion 
+                title={"하루 마무리하고싶죠?, 모임을 생성해볼까요?"}
+                desc={"스쳐가는 인연이 생길수도 있습니다. 지금 바로 인연을 만들어봐요"}
+            />
 
             <div className="match-list">
                 {matches.map((match) => (

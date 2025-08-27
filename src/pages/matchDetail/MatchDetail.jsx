@@ -1,5 +1,5 @@
 import React from "react";
-import './MatchDetail.css'
+import '../../css/MatchDetail.css'
 import MatchHeader from "../../components/match/MatchHeader";
 import MatchDescription from "../../components/match/MatchDescription";
 import FixedButton from "../../components/match/FixedButton";

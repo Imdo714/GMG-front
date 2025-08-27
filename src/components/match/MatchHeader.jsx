@@ -3,10 +3,10 @@ import React from "react";
 const MatchHeader = ({ date, title, location, views, likes }) => {
   return (
     <div>
-      <div className="date">{date}</div>
-      <div className="title">{title}</div>
-      <div className="location">{location}</div>
-      <div className="stats">
+      <div className="detail-date">{date}</div>
+      <div className="detail-title">{title}</div>
+      <div className="detail-location">{location}</div>
+      <div className="detail-stats">
         👁️ {views} &nbsp; ❤️ {likes}
       </div>
     </div>

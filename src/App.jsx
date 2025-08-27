@@ -4,18 +4,11 @@ import HomePage from "./pages/homePage/HomePage"
 import MatchDetail from './pages/matchDetail/MatchDetail';
 import AppBanner from './components/AppBanner';
 import BottomNav from './components/BottomNav';
+import ProfilePage from './pages/profile/ProfilePage';
 
 function App() {
 
   return (
-    //   <BrowserRouter>
-    //   <Routes>
-    //     <Route path="/" element={ <HomePage /> } />           {/* 메인 페이지 */}
-    //     <Route path="/match-detail" element={<MatchDetail />} />     {/* about 페이지 */}
-    //   </Routes>
-    // </BrowserRouter>
-
-    
     <BrowserRouter>
       <div className="app-container">
         {/* 항상 위에 보이는 헤더 */}
@@ -26,6 +19,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/match-detail" element={<MatchDetail />} />
+            <Route path="/mypage" element={<ProfilePage />} />
           </Routes>
         </main>
 
