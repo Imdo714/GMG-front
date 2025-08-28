@@ -1,0 +1,92 @@
+.met-form-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.met-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.met-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.met-label {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+.met-input,
+.met-textarea {
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+  transition: all 0.2s;
+  background-color: #fff;
+  color: #333;
+}
+
+.met-input:focus,
+.met-textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0,123,255,0.3);
+}
+
+.met-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.met-form-row {
+  display: flex;
+  gap: 12px;
+}
+
+.met-form-row .met-form-group {
+  flex: 1;
+}
+
+.met-submit-btn {
+  padding: 10px 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.met-submit-btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,123,255,0.3);
+}
+
+.met-input-file {
+  padding: 4px;
+}
+
+.met-image-preview {
+  margin-top: 8px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  display: none;
+}
+
+@media (max-width: 500px) {
+  .met-form-row {
+    flex-direction: column;
+  }
+}

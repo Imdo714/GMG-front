@@ -1,11 +1,14 @@
-import MenuButtons from "../MenuButtons";
+import CategoryButtons from "./CategoryButtons";
 import soccerField from "../../assets/react.svg";
 
-const MainBanner = () => {
+const MainBanner = ({ selected, setSelected }) => {
   return (
     <div className="main-banner">
-         <img src="https://d31wz4d3hgve8q.cloudfront.net/media/banner-manner_pc.png" alt="메인 배너" />
-      <MenuButtons />
+      <img src="https://d31wz4d3hgve8q.cloudfront.net/media/banner-manner_pc.png" alt="메인 배너" />
+      <CategoryButtons 
+        selected={selected} 
+        setSelected={setSelected} 
+      />
     </div>
   );
 }

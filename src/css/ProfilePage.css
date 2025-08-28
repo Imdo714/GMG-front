@@ -42,19 +42,36 @@
     margin-top: 10px;
 }
 
-.actions button {
-    margin-right: 8px;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s;
+.change-name-btn, .change-profile-btn {
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
 }
 
-.actions button:hover {
-    background-color: #0056b3;
+.change-name-btn {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.change-name-btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+.change-profile-btn {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.change-profile-btn:hover {
+  background-color: #e0e0e0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 /* 익명 리뷰  */

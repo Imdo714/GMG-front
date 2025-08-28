@@ -2,28 +2,36 @@ import './App.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/homePage/HomePage"
 import MatchDetail from './pages/matchDetail/MatchDetail';
-import AppBanner from './components/AppBanner';
-import BottomNav from './components/BottomNav';
+import AppBanner from './components/fix/AppBanner';
+import BottomNav from './components/fix/BottomNav';
 import ProfilePage from './pages/profile/ProfilePage';
+import ReviewList from './pages/review/ReviewList';
+import ReviewDetail from './pages/review/ReviewDetail';
+import CreateMeetingPage from './pages/createMetting/CreateMeetingPage ';
+import Login from './pages/login/Login';
+import SingUp from './pages/singUp/SingUp';
 
 function App() {
 
   return (
     <BrowserRouter>
       <div className="app-container">
-        {/* 항상 위에 보이는 헤더 */}
         <AppBanner />
 
-        {/* 페이지 영역 */}
         <main className="main-content">
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/match-detail" element={<MatchDetail />} />
+            <Route path="/create" element={<CreateMeetingPage />} />
+            <Route path="/match/:id" element={<MatchDetail />} />
             <Route path="/mypage" element={<ProfilePage />} />
+            <Route path="/review" element={<ReviewList />} />
+            <Route path="/review/:id" element={<ReviewDetail />} />
+
+            <Route path="/login" element={<Login />} />
+            <Route path="/singUp" element={<SingUp />} />
           </Routes>
         </main>
 
-        {/* 항상 아래 보이는 네비 */}
         <BottomNav />
       </div>
     </BrowserRouter>

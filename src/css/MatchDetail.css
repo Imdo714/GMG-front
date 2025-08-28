@@ -13,10 +13,23 @@
   padding: 8px;
 }
 
-.detail-date {
-  font-size: 14px;
+.datetime {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 80px;
+}
+
+.date {
+  font-size: 13px;
   color: #666;
-  margin-bottom: 8px;
+  margin-bottom: 2px;
+}
+
+.time {
+  font-weight: bold;
+  font-size: 16px;
+  color: #000;
 }
 
 .detail-title {
@@ -33,7 +46,7 @@
 
 .detail-stats {
   font-size: 17px;
-  color: #999;
+  color: #000000;
   margin-bottom: 16px;
 }
 
@@ -135,6 +148,47 @@
     grid-template-columns: 1fr; /* 더 작으면 1개 */
   }
 }
+
+/* 버튼 기본 스타일 */
+.applicant-card button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+/* 수락 버튼 */
+.applicant-card .accept-btn {
+  background: #28a745;
+  color: #fff;
+}
+
+.applicant-card .accept-btn:hover {
+  background: #218838;
+  transform: translateY(-2px);
+}
+
+/* 거절 버튼 */
+.applicant-card .reject-btn {
+  background: #dc3545;
+  color: #fff;
+}
+
+.applicant-card .reject-btn:hover {
+  background: #c82333;
+  transform: translateY(-2px);
+}
+
+/* 버튼 그룹 정렬 */
+.applicant-card .button-group {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
 
 
 

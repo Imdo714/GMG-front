@@ -1,0 +1,97 @@
+.login-container {
+    padding: 30px 20px;
+    width: 100%;
+}
+
+.login-container h2 {
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 6px;
+    color: #444;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: white;
+    color: #000;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #1976d2;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.login-btn:hover {
+    background-color: #1565c0;
+}
+
+.social-login {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.social-login button {
+    margin: 5px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.kakao {
+    background-color: #fee500;
+    color: #000;
+}
+
+.google {
+    background-color: #e1e0e0;
+    color: rgb(0, 0, 0);
+}
+
+/* 회원가입 */
+.links {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 13px;
+}
+
+.links a {
+  color: #1976d2;
+  text-decoration: none;
+}
+
+.signup-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #1976d2;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}

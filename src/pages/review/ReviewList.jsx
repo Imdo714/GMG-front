@@ -1,16 +1,11 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import '../../css/HomePage.css'
-import Header from "../../components/home/Header";
-import MainBanner from "../../components/home/MainBanner";
 import MatchItem from "../../components/home/MatchItem";
 import Promotion from "../../components/promotion/Promotion";
-import PromotionButton from "../../components/promotion/PromotionButton";
 
-const HomePage = () => {
+const ReviewList = () => {
     const navigate = useNavigate();
-    const [selectedCategory, setSelectedCategory] = useState(null);
-    
+
     const [matches, setMatches] = useState([
         { id: 1, time: "19:00", title: "서울 뚝섬 런닝할 사람", mettingCount: 3, userCount: 10, view:200, isMeeting: true },
         { id: 2, time: "20:30", title: "잠실 풋살 경기", mettingCount: 3, userCount: 10, view:200, isMeeting: false },
@@ -28,37 +23,38 @@ const HomePage = () => {
         { id: 15, time: "21:00", title: "한강 밤산책 모임", mettingCount: 3, userCount: 10, view:200, isMeeting: false },
         { id: 16, time: "21:00", title: "한강 밤산책 모임", mettingCount: 3, userCount: 10, view:200, isMeeting: false },
     ]);
-    
-    return (
-        <div className="container">
-            <Header />
-            <MainBanner selected={selectedCategory} setSelected={setSelectedCategory} />
 
+    return(
+        <div className="container">
+
+            {/* promotion 영역 */}
             <div className="promo-banner">
                 <Promotion 
-                title={"혼자 하기 싫죠?, 모임을 생성해볼까요?"}
-                desc={"스쳐가는 인연이 생길수도 있습니다. 지금 바로 인연을 만들어봐요"}
+                title={"이번 만남은 어땠나요? 후기를 남겨주세요!"}
+                desc={"카드를 누르면 후기를 작성할수 있습니다!"}
                 />
-                <PromotionButton />
             </div>
 
             <div className="match-list">
                 {matches.map((match) => (
-                <MatchItem
-                    key={match.id} 
-                    id={match.id} 
-                    time={match.time}
-                    title={match.title}
-                    mettingCount={match.mettingCount}
-                    userCount={match.userCount}
-                    views={match.view}
-                    isMeeting={match.isMeeting}
-                    onClick={() => navigate(`/match/${match.id}`)}
-                />
+                    <MatchItem
+                        key={match.id} 
+                        id={match.id} 
+                        time={match.time}
+                        title={match.title}
+                        mettingCount={match.mettingCount}
+                        userCount={match.userCount}
+                        views={match.view}
+                        isMeeting={match.isMeeting}
+                        onClick={() => navigate(`/review/${match.id}`)}
+                    />
                 ))}
             </div>
+
+            
+
         </div>
-    );
+    )
 }
 
-export default HomePage;
+export default ReviewList;

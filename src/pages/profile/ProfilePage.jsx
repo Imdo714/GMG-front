@@ -1,4 +1,4 @@
-import './ProfilePage.css'
+import '../../css/ProfilePage.css'
 import ProfileCard from "../../components/profile/ProfileCard";
 import StatsCard from "../../components/profile/StatsCard";
 import ReviewBox from "../../components/profile/ReviewBox";

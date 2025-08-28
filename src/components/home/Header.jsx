@@ -1,7 +1,12 @@
+import Logo from "../../assets/gmgLogo.png"
+
 const Header = () => {
   return (
     <div className="header">
-        <div className="logo">GMG</div>
+        {/* <div className="logo">GMG</div> */}
+      <div className="logo">
+        <img src={Logo} alt="GMG Logo" style={{ height: "40px" }} />
+      </div>
 
         <div className="right-group">
             <input
