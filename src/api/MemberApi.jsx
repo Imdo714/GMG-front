@@ -11,3 +11,13 @@ export const memberLogin = async (loginData) => {
   }
 }
 
+// 회원가입
+export const memberSingUp = async (singUpData) => {
+  try {
+    const response = await apiClient.post('/singUpForm', singUpData)
+    return response.data
+  } catch (error) {
+    console.error('회원가입 실패:', error)
+    throw error
+  }
+}

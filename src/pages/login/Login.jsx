@@ -30,9 +30,9 @@ const Login = () => {
     };
 
     return(
-        <div class="container">
-            <div class="login-container">
-                <h2>로그인</h2>loginData
+        <div className="container">
+            <div className="login-container">
+                <h2>로그인</h2>
                 <LoginForm loginData={loginData} handleChange={handleChange} memberLoginSubmit={memberLoginSubmit}/>
                 <div className="links">
                     <a href="/singUp">계정이 없으신가요? 회원가입</a>

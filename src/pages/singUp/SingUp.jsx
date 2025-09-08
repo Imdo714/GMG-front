@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { memberSingUp } from "../../api/MemberApi";
 import '../../css/Login.css'
 import SignUpForm from "./SignUpForm";
 
@@ -6,9 +7,7 @@ const SignUp = () => {
     const [formData, setFormData] = useState({
         email: "",
         password: "",
-        name: "",
-        userClass: "",
-        userTarget: ""
+        name: ""
     });
 
     const handleChange = (e) => {
@@ -16,16 +15,27 @@ const SignUp = () => {
         setFormData({ ...formData, [name]: value });
     };
 
-    const handleSubmit = async (e) => {
+    const memberSingUpSubmit = async (e) => {
         e.preventDefault();
-        alert("회원가입 성공!");
+
+        try{
+            await memberSingUp(formData);
+            alert("회원가입에 성공했습니다.");
+            window.location.href = "/login";
+        } catch (error) {
+            if (error.response.data.message) {
+                alert(error.response.data.message);
+            } else {
+                alert("회원가입에 실패했습니다.");
+            }
+        }
     };
 
     return (
         <div className="container">
             <div className="login-container">
                 <h2>회원가입</h2>
-                <SignUpForm formData={formData} handleChange={handleChange} handleSubmit={handleSubmit} />
+                <SignUpForm formData={formData} handleChange={handleChange} memberSingUpSubmit={memberSingUpSubmit} />
                 <div className="links">
                     <a href="/login">이미 계정이 있으신가요? 로그인</a>
                 </div>

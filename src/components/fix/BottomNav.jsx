@@ -15,7 +15,7 @@ const BottomNav = () => {
           <button 
             onClick={() => navigate(isLoggedIn ? "/mypage" : "/login")}
             className="nav-btn"
-          >마이페이지</button>
+          >{isLoggedIn ? "마이페이지" : "로그인"}</button>
         </div>
     </div>
   );
