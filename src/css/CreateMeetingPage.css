@@ -1,5 +1,11 @@
+.met-title-container {
+  height: 74px;
+  padding-top: 22px;
+  text-align: center;
+}
+
 .met-form-title {
-  font-size: 20px;
+  font-size: 27px;
   font-weight: bold;
   margin-bottom: 12px;
   color: #333;
@@ -64,6 +70,7 @@
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s;
+  margin-bottom: 20px;
 }
 
 .met-submit-btn:hover {

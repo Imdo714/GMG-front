@@ -1,5 +1,6 @@
 import './App.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { AuthProvider } from './useContext/AuthContext';
 import HomePage from "./pages/homePage/HomePage"
 import MatchDetail from './pages/matchDetail/MatchDetail';
 import AppBanner from './components/fix/AppBanner';
@@ -14,27 +15,29 @@ import SingUp from './pages/singUp/SingUp';
 function App() {
 
   return (
-    <BrowserRouter>
-      <div className="app-container">
-        <AppBanner />
+    <AuthProvider>
+      <BrowserRouter>
+        <div className="app-container">
+          <AppBanner />
 
-        <main className="main-content">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/create" element={<CreateMeetingPage />} />
-            <Route path="/match/:id" element={<MatchDetail />} />
-            <Route path="/mypage" element={<ProfilePage />} />
-            <Route path="/review" element={<ReviewList />} />
-            <Route path="/review/:id" element={<ReviewDetail />} />
+          <main className="main-content">
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/create" element={<CreateMeetingPage />} />
+              <Route path="/match/:id" element={<MatchDetail />} />
+              <Route path="/mypage" element={<ProfilePage />} />
+              <Route path="/review" element={<ReviewList />} />
+              <Route path="/review/:id" element={<ReviewDetail />} />
 
-            <Route path="/login" element={<Login />} />
-            <Route path="/singUp" element={<SingUp />} />
-          </Routes>
-        </main>
+              <Route path="/login" element={<Login />} />
+              <Route path="/singUp" element={<SingUp />} />
+            </Routes>
+          </main>
 
-        <BottomNav />
-      </div>
-    </BrowserRouter>
+          <BottomNav />
+        </div>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 

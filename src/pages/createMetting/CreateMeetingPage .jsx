@@ -5,7 +5,10 @@ import CreateMeetingForm from "../../components/createMetting/CreateMeetingForm"
 const CreateMeetingPage = () => {
     return(
         <div className="container">
-            <h2 className="form-title">모임 생성</h2>
+            <div className="met-title-container">
+                <h2 className="met-form-title">모임 생성</h2>
+            </div>
+            
             <CreateMeetingForm />
         </div>
     )
