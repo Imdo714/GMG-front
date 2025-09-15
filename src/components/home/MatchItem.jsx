@@ -1,26 +1,34 @@
-const MatchItem = ({ id, time, title, mettingCount, userCount, views, isMeeting, onClick }) => {
+import React from "react";
+
+const MatchItem = React.forwardRef(({ id, time, title, personCount, acceptedCount, views, onClick }, ref) => {
+  const [datePart, timePart] = time.split("T");
+  const timeWithoutSeconds = timePart.slice(0, 5);
+  const isClosed = acceptedCount >= personCount;
 
   return (
-    <div className="match-item" onClick={onClick}  > 
-        <div className="datetime">
-          <div className="date">2025-09-01</div>
-          <div className="time">{time}</div>
-        </div>
+    <div className="match-item" onClick={onClick} ref={ref}>
+      <div className="datetime">
+        <div className="date">{datePart}</div>
+        <div className="time">{timeWithoutSeconds}</div>
+      </div>
 
       <div className="details">
-        <div className="title">{title}</div>
+        <div className="title">
+          {title}
+        </div>
 
-        {isMeeting ? (
-          <div className="subtitle">모집 인원 {mettingCount} / {userCount}</div>
-        ) : (
+        {isClosed ? (
           <span className="closed-label">마감</span>
+        ) : (
+          <div className="subtitle">
+            모집 인원 {acceptedCount} / {personCount}
+          </div>
         )}
-
       </div>
 
       <div className="favorite">👁️ {views}</div>
     </div>
   );
-}
+});
 
 export default MatchItem;
