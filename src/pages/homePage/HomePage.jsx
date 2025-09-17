@@ -8,7 +8,7 @@ import Promotion from "../../components/promotion/Promotion";
 import PromotionButton from "../../components/promotion/PromotionButton";
 
 const HomePage = () => {
-    const [selectedCategory, setSelectedCategory] = useState(null);
+    const [selectedCategory, setSelectedCategory] = useState('ALL');
     
     return (
         <div className="container">

@@ -7,7 +7,7 @@ const CategoryButtons = ( { selected, setSelected } ) => {
     { id: "RUNNING", label: "🏃런닝" },
     { id: "BEER", label: "🍺퇴근후 맥주" },
     { id: "STUDY", label: "🍵스터디" },
-    { id: "TRAVEL", label: "✈️시작하기" },
+    { id: "TRAVEL", label: "✈️여행" },
   ];
 
   return (
