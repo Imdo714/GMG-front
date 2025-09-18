@@ -24,7 +24,7 @@ function App() {
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/create" element={<CreateMeetingPage />} />
-              <Route path="/match/:id" element={<MatchDetail />} />
+              <Route path="/match/:meetingId" element={<MatchDetail />} />
               <Route path="/mypage" element={<ProfilePage />} />
               <Route path="/review" element={<ReviewList />} />
               <Route path="/review/:id" element={<ReviewDetail />} />
