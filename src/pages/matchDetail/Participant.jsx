@@ -1,44 +1,83 @@
 import { useEffect, useState } from "react";
-import { meetingParticipant } from "../../api/Meeting";
-import Applicants from "../../components/matchDetail/Applicants";
+import { meetingParticipant, acceptedParticipant, rejectParticipant } from "../../api/ParticipantApi"; 
+import AcceptedApplicants from "../../components/matchDetail/AcceptedApplicants";
 import PendingApplicants from "../../components/matchDetail/PendingApplicants";
+import MatchDescription from "../../components/matchDetail/MatchDescription";
 
-const Participant = ({ meetingId }) => {
-  const [accepted, setAccepted] = useState([
-    { id: 1, name: "홍길동", avatar: "https://i.pravatar.cc/80?img=1" },
-  ]);
+const Participant = ({ meetingId, matchInfo }) => {
+  const [accepted, setAccepted] = useState([]);
+  const [pending, setPending] = useState([]);
 
-  const [pending, setPending] = useState([
-    { id: 2, name: "김철수", avatar: "https://i.pravatar.cc/80?img=2" },
-    { id: 3, name: "이영희", avatar: "https://i.pravatar.cc/80?img=3" },
-    { id: 4, name: "박민수", avatar: "https://i.pravatar.cc/80?img=4" },
-  ]);
+  useEffect(() => {
+    const fetchApplicants = async () => {
+      try{
+        const res = await meetingParticipant(meetingId);
+        console.log(res.data);
+        const { acceptedParticipantList, pendingParticipantList } = res.data;
 
-//   const [accepted, setAccepted] = useState([]);
-//   const [pending, setPending] = useState([]);
+        setAccepted(
+          acceptedParticipantList.map((p) => ({
+            participantId: p.participantId,
+            userId: p.memberId,
+            avatar: p.memberProfile,
+            name: p.memberName,
+          }))
+        );
 
-//   useEffect(() => {
-//     const fetchApplicants = async () => {
-//       const res = await meetingParticipant(meetingId);
-//       setAccepted(res.accepted);
-//       setPending(res.pending);
-//     };
-//     fetchApplicants();
-//   }, [meetingId]);
+        setPending(
+          pendingParticipantList.map((p) => ({
+            participantId: p.participantId,
+            userId: p.memberId,
+            avatar: p.memberProfile,
+            name: p.memberName,
+          }))
+        );
+      } catch (error){
+        console.log(error);
+      }
+    };
 
-  const handleAccept = (applicant) => {
-    setAccepted([...accepted, applicant]);
-    setPending(pending.filter((p) => p.id !== applicant.id));
+    fetchApplicants();
+  }, [meetingId]);
+
+  const handleAccept = async (applicant) => {
+    try{
+      const res = await acceptedParticipant(meetingId, applicant.participantId);
+      console.log(res);
+
+      setAccepted([...accepted, applicant]);
+      setPending(pending.filter((p) => p.participantId !== applicant.participantId));
+    } catch(error){
+      console.log(error);
+      if (error.response) {
+        const data = error.response.data;
+        alert(data.message || data.error);
+      }
+    }
   };
 
-  const handleReject = (id) => {
-    setPending(pending.filter((p) => p.id !== id));
+  const handleReject = async (participantId) => {
+    try{
+      const res = await rejectParticipant(meetingId, participantId);
+      console.log(res);
+
+      setPending(pending.filter((p) => p.participantId !== participantId));
+    } catch(error){
+      console.log(error);
+      if (error.response) {
+        const data = error.response.data;
+        alert(data.message || data.error);
+      }
+    }
   };
 
   return (
     <>
-      <Applicants accepted={accepted} />
+      <MatchDescription acceptedCount={accepted.length} personCount={matchInfo.personCount}/>
+
+      <AcceptedApplicants accepted={accepted} personCount={matchInfo.personCount} />
       <PendingApplicants
+        memberId={matchInfo.createMemberId}
         pending={pending}
         onAccept={handleAccept}
         onReject={handleReject}

@@ -41,13 +41,3 @@ export const meetingViews = async (meetingId) => {
     throw error
   }
 }
-
-// 모임 창여자 요청
-export const meetingParticipant = async (meetingId) => {
-  try {
-    const response = await apiClient.get(`/meeting/participant/${meetingId}`);
-    return response.data
-  } catch (error) {
-    throw error
-  }
-}
