@@ -99,7 +99,12 @@ const Participant = ({ meetingId, matchInfo, reflush }) => {
 
   return (
     <>
-      <MatchDescription acceptedCount={accepted.length} personCount={matchInfo.personCount}/>
+      <MatchDescription 
+      meetingId={meetingId}
+      memberId={matchInfo.createMemberId}
+      acceptedCount={accepted.length} 
+      personCount={matchInfo.personCount}
+      />
 
       <AcceptedApplicants 
         accepted={accepted} 

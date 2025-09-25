@@ -83,6 +83,11 @@
   color: #666;
 }
 
+.status-inline.delete {
+  background-color: #ff563c; 
+  color: rgb(255, 255, 255);
+}
+
 /* 신청자 리스트 */
 .applicants-box {
   background: #fff;

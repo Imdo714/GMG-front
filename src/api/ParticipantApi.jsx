@@ -56,3 +56,13 @@ export const cancelParticipant = async (meetingId, participantId) => {
     throw error
   }
 }
+
+// 모임 신청 요청
+export const deleteParticipant = async (meetingId) => {
+  try {
+    const response = await apiClient.delete(`/meeting/${meetingId}`);
+    return response.data
+  } catch (error) {
+    throw error
+  }
+}

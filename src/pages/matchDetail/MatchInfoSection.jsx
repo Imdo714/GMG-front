@@ -10,7 +10,6 @@ const MatchInfoSection = ({ meetingId, matchInfo }) => {
     const fetchViews = async () => {
       try{
         const res = await meetingViews(meetingId);
-        console.log(res.data.seeCount);
         setViews(res.data.seeCount);
       } catch(error){
         console.log(error);
