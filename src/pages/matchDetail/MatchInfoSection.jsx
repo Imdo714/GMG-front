@@ -8,12 +8,20 @@ const MatchInfoSection = ({ meetingId, matchInfo }) => {
 
   useEffect(() => {
     const fetchViews = async () => {
-      const res = await meetingViews(meetingId);
-      console.log(res.data.seeCount);
-      setViews(res.data.seeCount);
+      try{
+        const res = await meetingViews(meetingId);
+        console.log(res.data.seeCount);
+        setViews(res.data.seeCount);
+      } catch(error){
+        console.log(error);
+        if (error.response) {
+          const data = error.response.data;
+          alert(data.message || data.error);
+        }
+      }
     };
 
-    // fetchViews(); // 조회수 레디스 떄문에 꺼놓음
+    fetchViews();
   }, [meetingId]);
 
   if (!matchInfo) return <div>로딩중...</div>;

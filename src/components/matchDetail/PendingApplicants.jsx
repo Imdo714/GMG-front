@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../useContext/AuthContext";
 
-const PendingApplicants = ({ memberId, pending, onAccept, onReject }) => {
+const PendingApplicants = ({ memberId, pending, onAccept, onReject, onCancel }) => {
   const { user } = useContext(AuthContext);
 
   return (
@@ -29,6 +29,17 @@ const PendingApplicants = ({ memberId, pending, onAccept, onReject }) => {
                   onClick={() => onReject(applicant.participantId)}
                 >
                   거절
+                </button>
+              </div>
+            )}
+
+            {user?.userId === applicant.userId && (
+              <div className="button-group">
+                <button
+                  className="accept-btn" style={{ background: "#808080" }}
+                  onClick={() => onCancel(applicant.participantId)}
+                >
+                  모임 취소
                 </button>
               </div>
             )}
