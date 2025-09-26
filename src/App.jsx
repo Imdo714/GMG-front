@@ -27,7 +27,7 @@ function App() {
               <Route path="/match/:meetingId" element={<MatchDetail />} />
               <Route path="/mypage/:memberId" element={<ProfilePage />} />
               <Route path="/review" element={<ReviewList />} />
-              <Route path="/review/:id" element={<ReviewDetail />} />
+              <Route path="/review/:meetingId" element={<ReviewDetail />} />
 
               <Route path="/login" element={<Login />} />
               <Route path="/singUp" element={<SingUp />} />

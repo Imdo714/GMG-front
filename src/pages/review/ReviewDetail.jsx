@@ -1,12 +1,35 @@
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { meetingDetail } from '../../api/Meeting';
 import MatchHeader from "../../components/matchDetail/MatchHeader";
-import MatchDescription from "../../components/matchDetail/MatchDescription";
 import ApplicantsReview from "../../components/review/ApplicantsReview";
 import soccerField from "../../assets/react.svg";
 import Promotion from "../../components/promotion/Promotion";
 
-
 const ReviewDetail = () => {
     // 모임이 끝난 모임정보를 보여주고 카드를 눌러 그 사람의 후기를 남겨주는 페이지
+    const { meetingId } = useParams();
+    const [matchInfo, setMatchInfo] = useState(null);
+
+      useEffect(() => {
+        const fetchMatchInfo = async () => {
+          try{
+            const res = await meetingDetail(meetingId);
+            const { meeting, closed } = res.data;
+            setMatchInfo({ ...meeting, isClosed: closed });
+          } catch(error){
+            console.log(error);
+            if (error.response) {
+              const data = error.response.data;
+              alert(data.message || data.error);
+            }
+          }
+        };
+    
+        fetchMatchInfo();
+      }, [meetingId]);
+    
+    if (!matchInfo) return <div>로딩중...</div>;
 
     return (
         <div className="container">
@@ -15,16 +38,7 @@ const ReviewDetail = () => {
 
             <div className="content">
                 <MatchHeader
-                date="8월 26일 화요일 11:00"
-                title="서울 영등포 EA SPORTS FC(더에프필드) B구장"
-                location="서울특별시 영등포구 선유로 138"
-                views={230}
-                likes={0}
-                />
-
-                <MatchDescription
-                open={false}
-                description={`매치 시작 10분 전 신청이 마감됩니다.\n무더위엔 내 몸 상태를 세심하게 살피고 즐겁게 뛰어요!`}
+                matchInfo={matchInfo}
                 />
 
                 {/* promotion 영역 */}
@@ -36,8 +50,9 @@ const ReviewDetail = () => {
                 </div>
 
                 {/* 리뷰 작성 영역 */}
-                <ApplicantsReview />
-
+                <ApplicantsReview 
+                    meetingId={meetingId}
+                />
             </div>
 
         </div>
