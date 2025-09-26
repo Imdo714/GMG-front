@@ -34,22 +34,23 @@ const CreateMeetingForm = () => {
 
     try{
       const response = await createMeeting(formData);
-      console.log(response);
+      console.log("response", response);
       const id = response.data.meetingId;
-      window.location.href = "/match/" + id;
+      // window.location.href = "/match/" + id;
 
     } catch(error){
-      console.error("모임 생성 실패:", error);
-
-      if (error.response.data.data) {
-        const errorMessages = Object.values(error.response.data.data);
-        alert(errorMessages.join('\n'));
-    } else {
-        alert('모임 생성 중 문제가 발생했습니다. 다시 시도해주세요.');
-        window.location.href = "/";
-    }
+      errorMessage(error);
     }
   };
+
+  // 에러 메시지 응답
+  const errorMessage = (error) => {
+    console.log(error);
+    if (error.response) {
+      const data = error.response.data;
+      alert(data.message || data.error);
+    }
+  }
 
   return (
     <form className="met-form" onSubmit={handleSubmit}>

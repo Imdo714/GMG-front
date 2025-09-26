@@ -2,9 +2,9 @@ import React, { useContext } from "react";
 import { deleteParticipant } from "../../api/ParticipantApi";
 import { AuthContext } from "../../useContext/AuthContext";
 
-const MatchDescription = ({ meetingId, memberId, acceptedCount, personCount }) => {
+const MatchDescription = ({ meetingId, matchInfo, acceptedCount, personCount }) => {
   const { user } = useContext(AuthContext);
-  const isClosed = acceptedCount >= personCount;
+  const maxPersonCount = acceptedCount >= personCount;
 
   // 모임 게시물 삭제 
   const deleteMeeting = async () => {
@@ -25,11 +25,11 @@ const MatchDescription = ({ meetingId, memberId, acceptedCount, personCount }) =
 
   return (
     <div className="description-box">
-      <div className={`status-inline ${isClosed ? "closed" : "open"}`}>
-        {isClosed ? "마감!" : "모집 중"}
+      <div className={`status-inline ${(matchInfo?.isClosed || maxPersonCount) ? "closed" : "open"}`}>
+        {(matchInfo?.isClosed || maxPersonCount) ? "마감!" : "모집 중"}
       </div>
 
-      {user?.userId == memberId && (
+      {user?.userId == matchInfo.createMemberId && (
         <div className="status-inline delete" onClick={() => deleteMeeting()}>
           삭제
         </div>

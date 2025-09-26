@@ -36,7 +36,6 @@ const MatchList = ({ selectedCategory }) => {
 
     try {
       const response = await meetingList(params); // 실제 API 호출
-      console.log("Fetching with params:", params);
 
       const newMatches = response.data?.list || [];
       const hasNext = response.data?.hasNext ?? false;
@@ -85,6 +84,7 @@ const MatchList = ({ selectedCategory }) => {
           personCount: match.personCount,
           acceptedCount: match.acceptedCount,
           views: match.seeCount,
+          closed: match.closed,
           onClick: () => navigate(`/match/${match.meetingId}`)
         };
 

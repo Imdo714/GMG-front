@@ -72,6 +72,7 @@ const Participant = ({ meetingId, matchInfo, reflush }) => {
     try {
       const res = await apis[actionType](meetingId, participantId);
 
+      setAccepted((prev) => prev.filter((p) => p.participantId !== participantId));
       setPending((prev) => prev.filter((p) => p.participantId !== participantId));
     } catch (error) {
       errorMessage(error);
@@ -101,7 +102,7 @@ const Participant = ({ meetingId, matchInfo, reflush }) => {
     <>
       <MatchDescription 
       meetingId={meetingId}
-      memberId={matchInfo.createMemberId}
+      matchInfo={matchInfo}
       acceptedCount={accepted.length} 
       personCount={matchInfo.personCount}
       />
