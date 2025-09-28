@@ -21,3 +21,13 @@ export const memberSingUp = async (singUpData) => {
     throw error
   }
 }
+
+// 참가했언더 회원 기록 리스트 
+export const myPage = async () => {
+  try {
+    const response = await apiClient.post(`/my-page`);
+    return response.data
+  } catch (error) {
+    throw error
+  }
+}

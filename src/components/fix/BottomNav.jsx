@@ -4,7 +4,7 @@ import { AuthContext } from "../../useContext/AuthContext";
 
 const BottomNav = () => {
   const navigate = useNavigate();
-  const { isLoggedIn } = useContext(AuthContext);
+  const { isLoggedIn, user } = useContext(AuthContext);
 
   return (
     <div className="bottom-nav">
@@ -13,7 +13,7 @@ const BottomNav = () => {
           <button onClick={() => navigate("/create")} className="nav-btn">모임 생성</button>
           <button onClick={() => navigate("/review")} className="nav-btn">예약 내역</button>
           <button 
-            onClick={() => navigate(isLoggedIn ? "/mypage" : "/login")}
+            onClick={() => navigate(isLoggedIn ? `/mypage/${user.userId}` : "/login")}
             className="nav-btn"
           >{isLoggedIn ? "마이페이지" : "로그인"}</button>
         </div>

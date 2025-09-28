@@ -26,9 +26,9 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/create" element={<CreateMeetingPage />} />
               <Route path="/match/:meetingId" element={<MatchDetail />} />
-              <Route path="/mypage/:memberId" element={<ProfilePage />} />
-
+              
               <Route element={<ProtectedRoute />}>
+                <Route path="/mypage/:memberId" element={<ProfilePage />} />
                 <Route path="/review" element={<ReviewList />} />
                 <Route path="/review/:meetingId" element={<ReviewDetail />} />
               </Route>
