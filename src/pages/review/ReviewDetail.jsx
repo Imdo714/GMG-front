@@ -38,7 +38,7 @@ const ReviewDetail = () => {
 
             <div className="content">
                 <MatchHeader
-                matchInfo={matchInfo}
+                  matchInfo={matchInfo}
                 />
 
                 {/* promotion 영역 */}

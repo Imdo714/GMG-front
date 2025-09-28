@@ -36,7 +36,7 @@ const CreateMeetingForm = () => {
       const response = await createMeeting(formData);
       console.log("response", response);
       const id = response.data.meetingId;
-      // window.location.href = "/match/" + id;
+      window.location.href = "/match/" + id;
 
     } catch(error){
       errorMessage(error);

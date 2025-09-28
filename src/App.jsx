@@ -1,6 +1,7 @@
 import './App.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from './useContext/AuthContext';
+import ProtectedRoute from './route/ProtectedRoute';
 import HomePage from "./pages/homePage/HomePage"
 import MatchDetail from './pages/matchDetail/MatchDetail';
 import AppBanner from './components/fix/AppBanner';
@@ -26,8 +27,12 @@ function App() {
               <Route path="/create" element={<CreateMeetingPage />} />
               <Route path="/match/:meetingId" element={<MatchDetail />} />
               <Route path="/mypage/:memberId" element={<ProfilePage />} />
-              <Route path="/review" element={<ReviewList />} />
-              <Route path="/review/:meetingId" element={<ReviewDetail />} />
+
+              <Route element={<ProtectedRoute />}>
+                <Route path="/review" element={<ReviewList />} />
+                <Route path="/review/:meetingId" element={<ReviewDetail />} />
+              </Route>
+              
 
               <Route path="/login" element={<Login />} />
               <Route path="/singUp" element={<SingUp />} />
