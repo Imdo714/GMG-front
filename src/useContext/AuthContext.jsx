@@ -4,6 +4,7 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
     const [user, setUser] = useState(null);
 
     // 처음 실행했을 때 정보 있는지 확인
@@ -15,6 +16,7 @@ export const AuthProvider = ({ children }) => {
             setIsLoggedIn(true);
             setUser(JSON.parse(userData));
         }
+        setIsLoading(false);
     }, []);
 
     // 로그인 함수
@@ -36,7 +38,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     return (
-        <AuthContext.Provider value={{ isLoggedIn, user, login, logout }}>
+        <AuthContext.Provider value={{ isLoggedIn, user, isLoading, login, logout }}>
             {children}
         </AuthContext.Provider>
     );

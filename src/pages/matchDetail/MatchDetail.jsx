@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
-import { meetingDetail } from "../../api/Meeting";
+import { meetingDetail, meetingViews } from "../../api/Meeting";
 import { requestParticipant } from "../../api/ParticipantApi";
 import '../../css/MatchDetail.css'
 import FixedButton from "../../components/matchDetail/FixedButton";
